@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TreeStatus} from "./models/enums/tree-status";
 import {GridComponent} from "./components/grid/grid.component";
 import {ActionsComponent} from "./components/actions/actions.component";
+import {Tree} from "./models/tree";
 
 
 @Component({
@@ -16,8 +17,8 @@ import {ActionsComponent} from "./components/actions/actions.component";
 })
 export class AppComponent implements OnInit {
 
-  title = 'wildfire-front';
-  treeList = [
+  title: string = 'wildfire-front';
+  treeList: Tree[] = [
     {
       status : TreeStatus.NORMAL,
       posX : 0,
@@ -64,7 +65,7 @@ export class AppComponent implements OnInit {
       posY : 2
     }
   ];
-  nbColumns=3;
+  nbColumns: number = 3;
 
   ngOnInit(): void {
 
