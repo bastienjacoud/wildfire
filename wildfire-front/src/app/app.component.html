@@ -1,11 +1,16 @@
 <main class="main">
-  <div class="content">
-    <mat-grid-list cols="2" rowHeight="2:1">
-      <mat-grid-tile>1</mat-grid-tile>
-      <mat-grid-tile>2</mat-grid-tile>
-      <mat-grid-tile>3</mat-grid-tile>
-      <mat-grid-tile>4</mat-grid-tile>
-    </mat-grid-list>
+  <div class="container">
+    <!--    Application title-->
+    <div class="row">
+      <h1 class="text-center">Wildfire</h1>
+    </div>
+    <!--    Grid-->
+    <div class="row">
+      <app-grid [treeList]="treeList" [nbColumns]="nbColumns"/>
+    </div>
+    <!--    Actions-->
+    <div class="row">
+      <app-actions/>
+    </div>
   </div>
 </main>
-<router-outlet />
