@@ -1,0 +1,41 @@
+<div>
+  <form [formGroup]="form">
+    <h1 mat-dialog-title>Paramètres</h1>
+    <mat-dialog-content>
+      <h2>Définissez les paramètres à appliquer</h2>
+      <!--  Slider nombre de colonnes -->
+      <div>
+        <label class="col-md-6">Colonnes : </label>
+        <mat-slider class="col-md-6" min="2" max="10" step="1" discrete="thumbLabel">
+          <input matSliderThumb value="{{appSettings?.nbCols}}" formControlName="nbCols">
+        </mat-slider>
+      </div>
+
+      <!--  Slider nombre de lignes -->
+      <div>
+        <label class="col-md-8">Lignes : </label>
+        <mat-slider class="col-md-8" min="2" max="10" step="1" discrete="thumbLabel">
+          <input matSliderThumb formControlName="nbRows">
+        </mat-slider>
+      </div>
+
+      <!--  Slider probabilité -->
+      <div>
+        <label class="col-md-8">Probabilité : </label>
+        <mat-slider class="col-md-8" min="0" max="1" step="0.1" discrete="thumbLabel">
+          <input matSliderThumb formControlName="probability">
+        </mat-slider>
+      </div>
+
+      <!--  Probabilité-->
+      <!--    <mat-form-field class="col-md-8">-->
+      <!--      <mat-label>Probabilité</mat-label>-->
+      <!--      <input matInput formControlName="probability">-->
+      <!--    </mat-form-field>-->
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="onCancel()">Annuler</button>
+      <button mat-button (click)="onSave()" cdkFocusInitial>Valider</button>
+    </mat-dialog-actions>
+  </form>
+</div>
