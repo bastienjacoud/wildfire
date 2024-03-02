@@ -1,5 +1,5 @@
 import {Component, NgModule, OnInit} from '@angular/core';
-import {TreeStatus} from "./models/enums/tree-status";
+import {CellStatus} from "./models/enums/cell-status";
 import {GridComponent} from "./components/grid/grid.component";
 import {ActionsComponent} from "./components/actions/actions.component";
 import {Tree} from "./models/tree";
@@ -24,47 +24,47 @@ export class AppComponent implements OnInit {
   title: string = 'wildfire-front';
   treeList: Tree[] = [
     {
-      status : TreeStatus.NORMAL,
+      status : CellStatus.NORMAL,
       posX : 0,
       posY : 0
     },
     {
-      status : TreeStatus.NORMAL,
+      status : CellStatus.NORMAL,
       posX : 1,
       posY : 0
     },
     {
-      status : TreeStatus.NORMAL,
+      status : CellStatus.NORMAL,
       posX : 2,
       posY : 0
     },
     {
-      status : TreeStatus.NORMAL,
+      status : CellStatus.NORMAL,
       posX : 0,
       posY : 1
     },
     {
-      status : TreeStatus.NORMAL,
+      status : CellStatus.NORMAL,
       posX : 1,
       posY : 1
     },
     {
-      status : TreeStatus.NORMAL,
+      status : CellStatus.NORMAL,
       posX : 2,
       posY : 1
     },
     {
-      status : TreeStatus.NORMAL,
+      status : CellStatus.NORMAL,
       posX : 0,
       posY : 2
     },
     {
-      status : TreeStatus.FIRE,
+      status : CellStatus.FIRE,
       posX : 1,
       posY : 2
     },
     {
-      status : TreeStatus.CINDER,
+      status : CellStatus.CINDER,
       posX : 2,
       posY : 2
     }

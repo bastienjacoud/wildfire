@@ -1,10 +1,10 @@
-import {TreeStatus} from "./enums/tree-status";
+import {CellStatus} from "./enums/cell-status";
 
 export class Tree {
   constructor() {
   }
 
-  status: TreeStatus = TreeStatus.DEFAULT;
+  status: CellStatus = CellStatus.DEFAULT;
   posX: number = 0;
   posY: number = 0;
 }

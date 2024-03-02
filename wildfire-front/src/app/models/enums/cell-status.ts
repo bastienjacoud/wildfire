@@ -1,4 +1,4 @@
-export enum TreeStatus {
+export enum CellStatus {
   DEFAULT,
   NORMAL ,
   FIRE,
