@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class SettingsDTO {
-    private Integer nbCols;
-    private Integer nbRows;
-    private Double probability;
+    private int nbCols;
+    private int nbRows;
+    private double probability;
 }

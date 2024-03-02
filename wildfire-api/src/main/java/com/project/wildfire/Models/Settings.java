@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "app.settings")
 @Data
 public class Settings {
-    private Integer length;
-    private Integer height;
+    private int length;
+    private int height;
     private Double probability;
 }
