@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
 import {TreeStatus} from "./models/enums/tree-status";
 import {GridComponent} from "./components/grid/grid.component";
 import {ActionsComponent} from "./components/actions/actions.component";
 import {Tree} from "./models/tree";
+import {SettingsService} from "./services/settings.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @Component({
@@ -10,10 +12,12 @@ import {Tree} from "./models/tree";
   standalone: true,
   imports: [
     GridComponent,
-    ActionsComponent
+    ActionsComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers: [SettingsService],
 })
 export class AppComponent implements OnInit {
 
@@ -66,8 +70,21 @@ export class AppComponent implements OnInit {
     }
   ];
   nbColumns: number = 3;
+  loading = false;
+  error = '';
+  constructor(private settingsService: SettingsService) { }
 
   ngOnInit(): void {
+    this.getSettings();
+  }
 
+  getSettings(){
+    if(!this.loading){
+      this.loading = true;
+      this.settingsService.getSettings().subscribe({
+        next: (settings : any) => console.log(settings),
+        error: (err) => console.log(err)
+      });
+    }
   }
 }
