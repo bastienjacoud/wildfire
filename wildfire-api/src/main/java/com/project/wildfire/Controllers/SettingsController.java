@@ -1,18 +1,13 @@
 package com.project.wildfire.Controllers;
 
-import com.project.wildfire.DTO.SettingsDTO;
+import com.project.wildfire.Models.DTO.SettingsDTO;
 import com.project.wildfire.Services.ISettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/settings")

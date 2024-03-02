@@ -1,4 +1,4 @@
-package com.project.wildfire.DTO;
+package com.project.wildfire.Models.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,4 +9,5 @@ public class SettingsDTO {
     private int nbCols;
     private int nbRows;
     private double probability;
+    private GridDTO initialState;
 }

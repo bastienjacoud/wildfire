@@ -1,6 +1,6 @@
 package com.project.wildfire.Services;
 
-import com.project.wildfire.DTO.SettingsDTO;
+import com.project.wildfire.Models.DTO.SettingsDTO;
 
 public interface ISettingsService {
 

@@ -14,5 +14,10 @@
       "name": "app.settings.probability",
       "type": "java.lang.Double",
       "description": "Fire propagation probability."
+    },
+    {
+      "name": "app.settings.initial-state",
+      "type": "java.lang.Object",
+      "description": "Fire propagation probability."
     }
   ] }
