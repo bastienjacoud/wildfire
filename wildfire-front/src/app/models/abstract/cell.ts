@@ -4,13 +4,15 @@ import {Model} from "../interface/model";
 
 export abstract class Cell implements Model{
 
-  protected constructor() {}
+  protected constructor(status:CellStatus) {
+    this.type = status;
+  }
 
   pos:Position = new Position();
-  status:CellStatus = CellStatus.DEFAULT;
+  type:CellStatus = CellStatus.DEFAULT;
 
-  hydrateFromJSON(json: any): any {
+  fromJSON(json: any): any {
     this.pos=json.pos;
-    this.status=json.status;
+    this.type=json.status;
   }
 }

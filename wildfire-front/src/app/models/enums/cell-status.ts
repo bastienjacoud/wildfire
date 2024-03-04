@@ -1,6 +1,6 @@
 export enum CellStatus {
-  DEFAULT,
-  NORMAL ,
-  FIRE,
-  CINDER,
+  DEFAULT = 'DEFAULT',
+  TREE = 'TREE',
+  FIRE = 'FIRE',
+  CINDER = 'CINDER'
 }

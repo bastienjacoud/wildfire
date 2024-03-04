@@ -1,3 +1,3 @@
 export interface Model {
-  hydrateFromJSON(json: any): any;
+  fromJSON(json: any): any;
 }
