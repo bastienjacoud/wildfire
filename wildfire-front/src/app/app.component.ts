@@ -1,10 +1,9 @@
-import {Component, NgModule, OnInit} from '@angular/core';
-import {CellStatus} from "./models/enums/cell-status";
+import {Component, OnInit} from '@angular/core';
 import {GridComponent} from "./components/grid/grid.component";
 import {ActionsComponent} from "./components/actions/actions.component";
-import {Tree} from "./models/tree";
 import {SettingsService} from "./services/settings.service";
 import {HttpClientModule} from "@angular/common/http";
+import {Settings} from "./models/settings";
 
 
 @Component({
@@ -22,69 +21,23 @@ import {HttpClientModule} from "@angular/common/http";
 export class AppComponent implements OnInit {
 
   title: string = 'wildfire-front';
-  treeList: Tree[] = [
-    {
-      status : CellStatus.NORMAL,
-      posX : 0,
-      posY : 0
-    },
-    {
-      status : CellStatus.NORMAL,
-      posX : 1,
-      posY : 0
-    },
-    {
-      status : CellStatus.NORMAL,
-      posX : 2,
-      posY : 0
-    },
-    {
-      status : CellStatus.NORMAL,
-      posX : 0,
-      posY : 1
-    },
-    {
-      status : CellStatus.NORMAL,
-      posX : 1,
-      posY : 1
-    },
-    {
-      status : CellStatus.NORMAL,
-      posX : 2,
-      posY : 1
-    },
-    {
-      status : CellStatus.NORMAL,
-      posX : 0,
-      posY : 2
-    },
-    {
-      status : CellStatus.FIRE,
-      posX : 1,
-      posY : 2
-    },
-    {
-      status : CellStatus.CINDER,
-      posX : 2,
-      posY : 2
-    }
-  ];
-  nbColumns: number = 3;
+  settings:Settings = new Settings();
   loading = false;
   error = '';
+
   constructor(private settingsService: SettingsService) { }
 
   ngOnInit(): void {
-    this.getSettings();
-  }
-
-  getSettings(){
     if(!this.loading){
       this.loading = true;
-      this.settingsService.getSettings().subscribe({
-        next: (settings : any) => console.log(settings),
-        error: (err) => console.log(err)
-      });
+      this.onLoadSettings().add(()=>this.loading = false);
     }
+  }
+
+  private onLoadSettings(){
+    return this.settingsService.getSettings().subscribe({
+      next: (settings : any) => this.settings.fromJSON(settings),
+      error: (err) => this.error=err
+    });
   }
 }
