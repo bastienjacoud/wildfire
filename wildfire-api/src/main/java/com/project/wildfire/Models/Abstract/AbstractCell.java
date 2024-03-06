@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public abstract class AbstractCell {
     private Position pos;

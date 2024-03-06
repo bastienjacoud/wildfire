@@ -1,10 +1,8 @@
-import {TreeStatus} from "./enums/tree-status";
+import {CellStatus} from "./enums/cell-status";
+import {Cell} from "./abstract/cell";
 
-export class Tree {
+export class Tree extends Cell{
   constructor() {
+    super(CellStatus.TREE);
   }
-
-  status: TreeStatus = TreeStatus.DEFAULT;
-  posX: number = 0;
-  posY: number = 0;
 }

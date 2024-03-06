@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatCard, MatCardMdImage} from "@angular/material/card";
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
-import {Tree} from "../../models/tree";
-import {TreeStatus} from "../../models/enums/tree-status";
+import {CellStatus} from "../../models/enums/cell-status";
+import {Cell} from "../../models/abstract/cell";
 
 @Component({
   selector: 'app-grid',
@@ -21,10 +21,10 @@ import {TreeStatus} from "../../models/enums/tree-status";
   styleUrl: './grid.component.css'
 })
 export class GridComponent implements OnInit {
-  @Input() treeList!: Tree[];
+  @Input() cellList!: Cell[];
   @Input() nbColumns!: number;
 
-  protected readonly TreeStatus = TreeStatus;
+  protected readonly TreeStatus = CellStatus;
 
   ngOnInit(): void {
 

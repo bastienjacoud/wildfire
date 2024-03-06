@@ -6,7 +6,11 @@
     </div>
     <!--    Grid-->
     <div class="row">
-      <app-grid [treeList]="treeList" [nbColumns]="nbColumns"/>
+      <app-grid [cellList]="settings.grid.cellList" [nbColumns]="settings.nbCols"/>
+    </div>
+    <!--    Step-->
+    <div class="row">
+      <h2 class="text-center">Step {{settings.grid.step}}</h2>
     </div>
     <!--    Actions-->
     <div class="row">

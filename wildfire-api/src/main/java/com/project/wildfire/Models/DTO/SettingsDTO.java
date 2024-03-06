@@ -9,5 +9,5 @@ public class SettingsDTO {
     private int nbCols;
     private int nbRows;
     private double probability;
-    private GridDTO initialState;
+    private GridDTO grid;
 }
