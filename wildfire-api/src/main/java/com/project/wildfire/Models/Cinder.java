@@ -8,6 +8,10 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Cinder extends AbstractCell {
+    public Cinder() {
+        super(CellStatus.CINDER);
+    }
+
     @Builder
     public Cinder(Position pos){
         super(pos, CellStatus.CINDER);

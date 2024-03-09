@@ -8,6 +8,10 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Fire extends AbstractCell {
+    public Fire() {
+        super(CellStatus.FIRE);
+    }
+
     @Builder
     public Fire(Position pos){
         super(pos, CellStatus.FIRE);
