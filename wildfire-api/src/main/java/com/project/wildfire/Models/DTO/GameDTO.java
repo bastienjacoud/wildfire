@@ -1,13 +1,15 @@
 package com.project.wildfire.Models.DTO;
 
+import com.project.wildfire.Models.Grid;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class SettingsDTO {
+public class GameDTO {
     private int nbCols;
-    private int nbRows;
     private double probability;
-    private GridDTO grid;
+    private Grid grid;
+    private int step;
 }

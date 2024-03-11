@@ -4,24 +4,27 @@ import com.project.wildfire.Helpers.CellHelper;
 import com.project.wildfire.Helpers.PositionHelper;
 import com.project.wildfire.Models.Abstract.AbstractCell;
 import com.project.wildfire.Models.Cinder;
-import com.project.wildfire.Models.DTO.GridDTO;
+import com.project.wildfire.Models.DTO.GameDTO;
+import com.project.wildfire.Models.Grid;
 import com.project.wildfire.Models.Fire;
 import com.project.wildfire.Models.Position;
 import com.project.wildfire.Models.Tree;
 import com.project.wildfire.Services.IGameService;
-import org.springframework.stereotype.Service;
 
+import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class GameService implements IGameService {
     @Override
-    public GridDTO goNextStep(GridDTO currentGrid) throws Exception {
-        return new GridDTO(runStep(currentGrid.getCellList()), currentGrid.getStep() + 1);
+    public GameDTO goNextStep(GameDTO currentGame) throws Exception {
+        currentGame.setGrid(new Grid(runStep(currentGame.getGrid().getCellList(), currentGame.getProbability())));
+        currentGame.setStep(currentGame.getStep() + 1);
+        return currentGame;
     }
 
-    private List<AbstractCell> runStep(List<AbstractCell> cellList){
+    private List<AbstractCell> runStep(List<AbstractCell> cellList, double probability){
         /* Copie de la liste existante */
         var res = new ArrayList<>(cellList);
         /* Pour chaque cellule en feu */
@@ -33,7 +36,7 @@ public class GameService implements IGameService {
                     adjacentCells.forEach(adjCell->{
                         /* Si la cellule est un arbre et que la probabilité le permet */
                         if(adjCell instanceof Tree){
-                            if(Math.random()<0.5){
+                            if(Math.random()<probability){
                                 /* On remplace la cellule adjacente par une cellule en feu */
                                 Position adjCellPos = adjCell.getPos();
                                 res.replaceAll(cell1-> PositionHelper.samePosition(cell1.getPos(), adjCellPos) ? new Fire(adjCellPos) : cell1);
