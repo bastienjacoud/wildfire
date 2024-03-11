@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {GridComponent} from "./components/grid/grid.component";
 import {ActionsComponent} from "./components/actions/actions.component";
 import {SettingsService} from "./services/settings.service";
@@ -21,7 +21,7 @@ import {Settings} from "./models/settings";
 export class AppComponent implements OnInit {
 
   title: string = 'wildfire-front';
-  settings:Settings = new Settings();
+  settings: Settings = new Settings();
   loading = false;
   error = '';
 
@@ -30,11 +30,11 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     if(!this.loading){
       this.loading = true;
-      this.onLoadSettings().add(()=>this.loading = false);
+      this.loadSettings().add(()=>this.loading = false);
     }
   }
 
-  private onLoadSettings(){
+  private loadSettings(){
     return this.settingsService.getSettings().subscribe({
       next: (settings : any) => this.settings.fromJSON(settings),
       error: (err) => this.error=err

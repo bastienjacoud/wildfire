@@ -1,21 +1,30 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatFabButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {SettingsDialogComponent} from "./settings-dialog/settings-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {SettingsService} from "../../services/settings.service";
+import {GameService} from "../../services/game.service";
+import {Cell} from "../../models/abstract/cell";
+import {Grid} from "../../models/grid";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-actions',
   standalone: true,
-    imports: [
-        MatFabButton,
-        MatIcon
-    ],
+  imports: [
+    MatFabButton,
+    MatIcon,
+    HttpClientModule
+  ],
   templateUrl: './actions.component.html',
-  styleUrl: './actions.component.css'
+  styleUrl: './actions.component.css',
+  providers: [GameService],
 })
 export class ActionsComponent implements OnInit{
-  constructor(public dialog: MatDialog) {}
+  @Input() currentGrid!: Grid;
+  @Output() currentGridChange = new EventEmitter<Grid>();
+  constructor(public dialog: MatDialog, private gameService: GameService) {}
   ngOnInit(): void {
 
   }
@@ -33,8 +42,10 @@ export class ActionsComponent implements OnInit{
     //TODO
   }
 
-  nextStep() {
-    //TODO
+  runStep() {
+    this.gameService.runStep(this.currentGrid).subscribe({
+      next: (grid: Grid) => this.currentGridChange.emit(grid),
+      error: (err) => console.log("Erreur : "+ err)
+    });
   }
-
 }

@@ -17,7 +17,7 @@ public class GameController {
     @Autowired
     private IGameService gameService;
 
-    @GetMapping("/run/step")
+    @PostMapping("/run/step")
     public ResponseEntity<?> goNextStep(@RequestBody HashMap<String, GridDTO> body){
         try{
             return new ResponseEntity<>(gameService.goNextStep(body.get("grid")), HttpStatus.OK);
