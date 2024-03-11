@@ -3,6 +3,7 @@ package com.project.wildfire.Services.Implementations;
 import com.project.wildfire.Helpers.CellHelper;
 import com.project.wildfire.Helpers.PositionHelper;
 import com.project.wildfire.Models.Abstract.AbstractCell;
+import com.project.wildfire.Models.Cinder;
 import com.project.wildfire.Models.DTO.GridDTO;
 import com.project.wildfire.Models.Fire;
 import com.project.wildfire.Models.Position;
@@ -30,14 +31,17 @@ public class GameService implements IGameService {
                     /* On récupère les cellules adjacentes */
                     var adjacentCells = CellHelper.getAdjacentCells(cellList, cell);
                     adjacentCells.forEach(adjCell->{
-                        /* On remplace la cellule par une cellule en feu, en fonction de la probabilité définie */
+                        /* Si la cellule est un arbre et que la probabilité le permet */
                         if(adjCell instanceof Tree){
                             if(Math.random()<0.5){
+                                /* On remplace la cellule adjacente par une cellule en feu */
                                 Position adjCellPos = adjCell.getPos();
                                 res.replaceAll(cell1-> PositionHelper.samePosition(cell1.getPos(), adjCellPos) ? new Fire(adjCellPos) : cell1);
                             }
                         }
                     });
+                    /* On remplace la cellule en feu par une cellule en cendres */
+                    res.replaceAll(cell1-> PositionHelper.samePosition(cell1.getPos(), cell.getPos()) ? new Cinder(cell.getPos()) : cell1);
                 });
         return res;
     }
