@@ -3,11 +3,9 @@ import {MatFabButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {SettingsDialogComponent} from "./settings-dialog/settings-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import {SettingsService} from "../../services/settings.service";
 import {GameService} from "../../services/game.service";
-import {Cell} from "../../models/abstract/cell";
-import {Grid} from "../../models/grid";
 import {HttpClientModule} from "@angular/common/http";
+import {Game} from "../../models/game";
 
 @Component({
   selector: 'app-actions',
@@ -22,8 +20,8 @@ import {HttpClientModule} from "@angular/common/http";
   providers: [GameService],
 })
 export class ActionsComponent implements OnInit{
-  @Input() currentGrid!: Grid;
-  @Output() currentGridChange = new EventEmitter<Grid>();
+  @Input() currentGame!: Game;
+  @Output() currentGameChange = new EventEmitter<Game>();
   constructor(public dialog: MatDialog, private gameService: GameService) {}
   ngOnInit(): void {
 
@@ -43,8 +41,8 @@ export class ActionsComponent implements OnInit{
   }
 
   runStep() {
-    this.gameService.runStep(this.currentGrid).subscribe({
-      next: (grid: Grid) => this.currentGridChange.emit(grid),
+    this.gameService.runStep(this.currentGame).subscribe({
+      next: (res: Game) => this.currentGameChange.emit(res),
       error: (err) => console.log("Erreur : "+ err)
     });
   }

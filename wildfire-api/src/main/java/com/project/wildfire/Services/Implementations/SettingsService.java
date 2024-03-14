@@ -17,7 +17,6 @@ public class SettingsService implements ISettingsService {
 
     @Override
     public GameDTO loadGame() throws Exception {
-        //TODO Ajouter vérifications sur le paramétrage (cohérence taille et grille initiale)
         return new GameDTO(settings.getNbCols(), settings.getProbability(), new Grid(CellConverter.ConvertStatusListToCells(settings.getInitialState(),settings.getNbCols())), 0);
     }
 

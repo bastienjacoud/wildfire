@@ -12,5 +12,4 @@ import java.util.List;
 @AllArgsConstructor
 public class Grid {
     private List<AbstractCell> cellList;
-//    private int step;
 }

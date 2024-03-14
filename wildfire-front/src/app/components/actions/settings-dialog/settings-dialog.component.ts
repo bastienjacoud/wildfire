@@ -1,4 +1,4 @@
-import {Component, Inject,OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, Input, OnInit, ViewChild} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -7,7 +7,7 @@ import {
 } from "@angular/material/dialog";
 import {MatSlider, MatSliderThumb} from "@angular/material/slider";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {Settings} from "../../../models/settings";
+import {Game} from "../../../models/game";
 import {MatButton} from "@angular/material/button";
 
 @Component({
@@ -26,15 +26,15 @@ import {MatButton} from "@angular/material/button";
   styleUrl: './settings-dialog.component.css'
 })
 export class SettingsDialogComponent {
-  appSettings : Settings | null = null;
+  @Input() game !: Game;
   form = new FormGroup({
-    "nbCols" : new FormControl(this.appSettings?.nbCols, Validators.required),
-    "nbRows" : new FormControl(this.appSettings?.nbRows, Validators.required),
-    "probability" : new FormControl(this.appSettings?.probability, Validators.required),
+    "nbCols" : new FormControl(this.game.nbCols, Validators.required),
+    // "nbRows" : new FormControl(this.game.nbRows, Validators.required),
+    "probability" : new FormControl(this.game?.probability, Validators.required),
   });
 
-  constructor(public dialogRef: MatDialogRef<SettingsDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Settings) {
-    this.appSettings = data;
+  constructor(public dialogRef: MatDialogRef<SettingsDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: Game) {
+    this.game = data;
   }
 
   onCancel(): void {
@@ -42,7 +42,7 @@ export class SettingsDialogComponent {
   }
 
   onSave(): void {
-    console.log(this.appSettings);
+    console.log(this.game);
     console.log(this.form.value.nbCols);
   }
 
