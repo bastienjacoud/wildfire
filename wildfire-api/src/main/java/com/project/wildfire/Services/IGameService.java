@@ -1,8 +1,9 @@
 package com.project.wildfire.Services;
 
-import com.project.wildfire.Models.DTO.GridDTO;
-import com.project.wildfire.Models.DTO.SettingsDTO;
+import com.project.wildfire.Models.DTO.GameDTO;
 
 public interface IGameService {
-    GridDTO goNextStep(GridDTO grid) throws Exception;
+    GameDTO goNextStep(GameDTO currentGame) throws Exception;
+
+    boolean checkEndGame(GameDTO currentGame) throws Exception;
 }

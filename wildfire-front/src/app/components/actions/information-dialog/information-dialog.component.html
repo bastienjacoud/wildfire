@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Fin de la simulation</h2>
+<mat-dialog-content>
+  La simulation est terminée. Souhaitez-vous réinitialiser la grille ?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Non</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Oui</button>
+</mat-dialog-actions>

@@ -1,14 +1,9 @@
 {
   "properties": [
     {
-      "name": "app.settings.length",
+      "name": "app.settings.nb-cols",
       "type": "java.lang.Integer",
       "description": "Lenght of forest."
-    },
-    {
-      "name": "app.settings.height",
-      "type": "java.lang.Integer",
-      "description": "Height of forest."
     },
     {
       "name": "app.settings.probability",
@@ -18,6 +13,6 @@
     {
       "name": "app.settings.initial-state",
       "type": "java.lang.Object",
-      "description": "Fire propagation probability."
+      "description": "Grid initial state."
     }
   ] }

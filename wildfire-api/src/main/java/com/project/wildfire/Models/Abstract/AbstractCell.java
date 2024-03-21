@@ -1,13 +1,14 @@
 package com.project.wildfire.Models.Abstract;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.project.wildfire.Models.Cinder;
 import com.project.wildfire.Models.Enums.CellStatus;
 import com.project.wildfire.Models.Fire;
 import com.project.wildfire.Models.Position;
 import com.project.wildfire.Models.Tree;
+
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.*;
 
 @Data

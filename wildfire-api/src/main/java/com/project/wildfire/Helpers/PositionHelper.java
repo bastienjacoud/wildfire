@@ -1,9 +1,6 @@
 package com.project.wildfire.Helpers;
 
-import com.project.wildfire.Models.Abstract.AbstractCell;
 import com.project.wildfire.Models.Position;
-
-import java.util.List;
 
 public class PositionHelper {
     public static boolean isAdjacent(Position pos1, Position pos2){

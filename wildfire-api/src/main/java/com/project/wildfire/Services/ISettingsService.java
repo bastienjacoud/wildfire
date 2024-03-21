@@ -1,9 +1,9 @@
 package com.project.wildfire.Services;
 
-import com.project.wildfire.Models.DTO.SettingsDTO;
+import com.project.wildfire.Models.DTO.GameDTO;
 
 public interface ISettingsService {
 
-    SettingsDTO findFirst() throws Exception;
-    SettingsDTO save(SettingsDTO settings);
+    GameDTO loadGame() throws Exception;
+    GameDTO saveSettings(GameDTO settings);
 }

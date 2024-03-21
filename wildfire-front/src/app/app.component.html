@@ -6,15 +6,15 @@
     </div>
     <!--    Grid-->
     <div class="row">
-      <app-grid [cellList]="settings.grid.cellList" [nbColumns]="settings.nbCols"/>
+      <app-grid [cellList]="game.grid.cellList" [nbColumns]="game.nbCols"/>
     </div>
     <!--    Step-->
     <div class="row">
-      <h2 class="text-center">Step {{settings.grid.step}}</h2>
+      <h2 class="text-center">Step {{game.step}}</h2>
     </div>
     <!--    Actions-->
     <div class="row">
-      <app-actions [(currentGrid)]="settings.grid"/>
+      <app-actions [(currentGame)]="game"/>
     </div>
   </div>
 </main>
