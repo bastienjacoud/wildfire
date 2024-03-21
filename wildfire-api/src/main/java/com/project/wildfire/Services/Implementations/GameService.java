@@ -26,7 +26,9 @@ public class GameService implements IGameService {
 
     @Override
     public boolean checkEndGame(GameDTO currentGame) throws Exception {
-        return false;
+        /* Vérifie qu'il y ait toujours des cellules en feu */
+        return currentGame.getGrid().getCellList().stream()
+                .noneMatch(cell -> cell instanceof Fire);
     }
 
     private List<AbstractCell> runStep(List<AbstractCell> cellList, double probability){
