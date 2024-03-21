@@ -24,6 +24,11 @@ public class GameService implements IGameService {
         return currentGame;
     }
 
+    @Override
+    public boolean checkEndGame(GameDTO currentGame) throws Exception {
+        return false;
+    }
+
     private List<AbstractCell> runStep(List<AbstractCell> cellList, double probability){
         /* Copie de la liste existante */
         var res = new ArrayList<>(cellList);

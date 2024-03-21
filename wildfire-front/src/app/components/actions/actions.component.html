@@ -10,8 +10,11 @@
     </button>
   </div>
   <div class="example-button-container">
-    <button mat-fab color="basic" (click)="runStep()" aria-label="Example icon button with a plus one icon">
+    <button *ngIf="!canReset" mat-fab color="basic" (click)="nextStep()" aria-label="Example icon button with a plus one icon">
       <mat-icon>skip_next</mat-icon>
+    </button>
+    <button *ngIf="canReset" mat-fab color="basic" (click)="resetSettings()" aria-label="Example icon button with a plus one icon">
+      <mat-icon>replay</mat-icon>
     </button>
   </div>
 </div>
