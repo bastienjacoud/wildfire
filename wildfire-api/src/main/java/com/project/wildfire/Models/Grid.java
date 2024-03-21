@@ -7,9 +7,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.List;
 
+/**
+ * Class for Grid
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Grid {
+
+    /**
+     * List of cells
+     */
     private List<AbstractCell> cellList;
 }
