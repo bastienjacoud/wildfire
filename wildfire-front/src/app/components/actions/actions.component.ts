@@ -10,6 +10,9 @@ import {InformationDialogComponent} from "./information-dialog/information-dialo
 import {SettingsService} from "../../services/settings.service";
 import {NgIf} from "@angular/common";
 
+/**
+ * Action component
+ */
 @Component({
   selector: 'app-actions',
   standalone: true,
@@ -24,14 +27,46 @@ import {NgIf} from "@angular/common";
   providers: [GameService],
 })
 export class ActionsComponent implements OnInit{
+
+  /**
+   * Game
+   */
   @Input() currentGame!: Game;
+
+  /**
+   * Event emitter for game
+   */
   @Output() currentGameChange = new EventEmitter<Game>();
+
+  /**
+   * Event emitter for error
+   */
   @Output() errorChange = new EventEmitter<string>();
+
+  /**
+   * Indicate if grid can be reset
+   * @protected
+   */
   protected canReset: boolean = false;
+
+  /**
+   * Constructor
+   * @param dialog Dialog
+   * @param gameService Game service
+   * @param settingsService Settings service
+   */
   constructor(private dialog: MatDialog, private gameService: GameService, private settingsService: SettingsService) {}
+
+  /**
+   * Component initialisation method
+   */
   ngOnInit(): void {
 
   }
+
+  /**
+   * Open settings modal
+   */
   openSettings() {
     //TODO
     this.dialog.open(SettingsDialogComponent, {
@@ -43,16 +78,27 @@ export class ActionsComponent implements OnInit{
     });
   }
 
+  /**
+   * Automatic simulation
+   */
   launch() {
     //TODO
   }
 
+  /**
+   * Step by step simulation
+   * @protected
+   */
   protected nextStep() {
     this.runStep().add(
       () => this.checkEndGame()
     );
   }
 
+  /**
+   * Reset game from settings
+   * @protected
+   */
   protected resetSettings(){
     return this.settingsService.getSettings().subscribe({
       next: (res: Game) => {
@@ -65,6 +111,10 @@ export class ActionsComponent implements OnInit{
     });
   }
 
+  /**
+   * Run one step
+   * @private
+   */
   private runStep() {
     return this.gameService.runStep(this.currentGame).subscribe({
       next: (res: Game) => {
@@ -76,6 +126,10 @@ export class ActionsComponent implements OnInit{
     });
   }
 
+  /**
+   * Check if game is ended
+   * @private
+   */
   private checkEndGame() {
     return this.gameService.checkEndGame(this.currentGame).subscribe({
       next: (res: boolean) => {

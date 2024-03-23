@@ -6,6 +6,9 @@ import {HttpClientModule, HttpErrorResponse} from "@angular/common/http";
 import {Game} from "./models/game";
 import {NgIf} from "@angular/common";
 
+/**
+ * Application component
+ */
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,13 +24,35 @@ import {NgIf} from "@angular/common";
 })
 export class AppComponent implements OnInit {
 
+  /**
+   * Title
+   */
   title: string = 'wildfire-front';
+
+  /**
+   * Game
+   */
   game: Game = new Game();
+
+  /**
+   * Loading status
+   */
   loading = false;
+
+  /**
+   * Error message
+   */
   error = '';
 
+  /**
+   * Constructor
+   * @param settingsService Service for settings
+   */
   constructor(private settingsService: SettingsService) { }
 
+  /**
+   * Component initialisation method
+   */
   ngOnInit(): void {
     if(!this.loading){
       this.loading = true;
@@ -35,10 +60,18 @@ export class AppComponent implements OnInit {
     }
   }
 
-  onError(tutu: string){
-    this.error = tutu;
+  /**
+   * Method used to manage errors
+   * @param err Erreur
+   */
+  onError(err: string){
+    this.error = err;
   }
 
+  /**
+   * Loading initial settings
+   * @private
+   */
   private loadSettings(){
     return this.settingsService.getSettings().subscribe({
       next: (res: Game) => {
