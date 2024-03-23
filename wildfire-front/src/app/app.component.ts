@@ -2,17 +2,21 @@ import {Component, OnInit} from '@angular/core';
 import {GridComponent} from "./components/grid/grid.component";
 import {ActionsComponent} from "./components/actions/actions.component";
 import {SettingsService} from "./services/settings.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HttpErrorResponse} from "@angular/common/http";
 import {Game} from "./models/game";
+import {NgIf} from "@angular/common";
 
-
+/**
+ * Application component
+ */
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     GridComponent,
     ActionsComponent,
-    HttpClientModule
+    HttpClientModule,
+    NgIf
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -20,13 +24,35 @@ import {Game} from "./models/game";
 })
 export class AppComponent implements OnInit {
 
+  /**
+   * Title
+   */
   title: string = 'wildfire-front';
+
+  /**
+   * Game
+   */
   game: Game = new Game();
+
+  /**
+   * Loading status
+   */
   loading = false;
+
+  /**
+   * Error message
+   */
   error = '';
 
+  /**
+   * Constructor
+   * @param settingsService Service for settings
+   */
   constructor(private settingsService: SettingsService) { }
 
+  /**
+   * Component initialisation method
+   */
   ngOnInit(): void {
     if(!this.loading){
       this.loading = true;
@@ -34,10 +60,25 @@ export class AppComponent implements OnInit {
     }
   }
 
+  /**
+   * Method used to manage errors
+   * @param err Erreur
+   */
+  onError(err: string){
+    this.error = err;
+  }
+
+  /**
+   * Loading initial settings
+   * @private
+   */
   private loadSettings(){
     return this.settingsService.getSettings().subscribe({
-      next: (res: Game) => this.game.fromJSON(res),
-      error: (err) => this.error=err
+      next: (res: Game) => {
+        this.game.fromJSON(res);
+        this.error = '';
+      },
+      error: (err: HttpErrorResponse) => this.error = err.message
     });
   }
 }

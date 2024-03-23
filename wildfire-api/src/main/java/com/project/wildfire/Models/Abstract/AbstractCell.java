@@ -11,6 +11,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.*;
 
+/**
+ * Abstract class for cell
+ */
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
@@ -22,7 +25,15 @@ import lombok.*;
         @Type(value = Fire.class, name = "FIRE")
 })
 public abstract class AbstractCell {
+
+    /**
+     * Position
+     */
     private Position pos;
+
+    /**
+     * Status
+     */
     @NonNull
     protected CellStatus type;
 }

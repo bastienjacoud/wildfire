@@ -11,7 +11,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Converters for cells
+ */
 public class CellConverter {
+
+    /**
+     * Convert a list of status to a list of cells. Used to initialize the grid.
+     * @param statusList list of status.
+     * @param columns Number of columns
+     * @return List of cells
+     */
     public static List<AbstractCell> ConvertStatusListToCells(List<CellStatus> statusList, int columns)
     {
         List<AbstractCell> res = new ArrayList<>();
@@ -27,11 +37,17 @@ public class CellConverter {
         return res;
     }
 
+    /**
+     * Convert status to cell. Used to initialize cells.
+     * @param status Cell's status.
+     * @param position Cell's position.
+     * @return Initialized cell.
+     */
     private static AbstractCell ConvertStatusToCell(CellStatus status, Position position){
         return switch (status) {
-            case FIRE -> Fire.builder().pos(position).build();
-            case TREE -> Tree.builder().pos(position).build();
-            case CINDER -> Cinder.builder().pos(position).build();
+            case FIRE -> new Fire(position);
+            case TREE -> new Tree(position);
+            case CINDER -> new Cinder(position);
             case DEFAULT -> null;
         };
     }

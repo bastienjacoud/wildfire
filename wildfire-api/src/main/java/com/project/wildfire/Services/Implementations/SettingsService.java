@@ -9,20 +9,42 @@ import com.project.wildfire.Services.ISettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service for settings
+ */
 @Service
 public class SettingsService implements ISettingsService {
 
+    /**
+     * Initial settings
+     */
     @Autowired
     private Settings settings;
 
+    /**
+     * Method used to load settings (initial simulation state)
+     * @return Initial game occurrence
+     * @throws NullPointerException Exception
+     */
     @Override
-    public GameDTO loadGame() throws Exception {
+    public GameDTO loadGame() throws NullPointerException {
+        /* Vérifie le chargement des paramètres */
+        if(settings == null || settings.getInitialState() == null){
+            throw new NullPointerException("Erreur lors du chargement des paramètres à partir du fichier de configuration");
+        }
+
+        /* Initialise et retourne la game à partir des paramètres */
         return new GameDTO(settings.getNbCols(), settings.getProbability(), new Grid(CellConverter.ConvertStatusListToCells(settings.getInitialState(),settings.getNbCols())), 0);
     }
 
-    //TODO
+    /**
+     * Method used to save current game occurrence
+     * @return Current game occurrence to save
+     * @throws Exception
+     */
     @Override
-    public GameDTO saveSettings(GameDTO settings) {
+    public GameDTO saveSettings(GameDTO settings) throws Exception {
+        //TODO
         return null;
     }
 }
