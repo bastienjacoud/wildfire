@@ -4,7 +4,7 @@ import {MatIcon} from "@angular/material/icon";
 import {SettingsDialogComponent} from "./settings-dialog/settings-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {GameService} from "../../services/game.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HttpErrorResponse} from "@angular/common/http";
 import {Game} from "../../models/game";
 import {InformationDialogComponent} from "./information-dialog/information-dialog.component";
 import {SettingsService} from "../../services/settings.service";
@@ -26,6 +26,7 @@ import {NgIf} from "@angular/common";
 export class ActionsComponent implements OnInit{
   @Input() currentGame!: Game;
   @Output() currentGameChange = new EventEmitter<Game>();
+  @Output() errorChange = new EventEmitter<string>();
   protected canReset: boolean = false;
   constructor(private dialog: MatDialog, private gameService: GameService, private settingsService: SettingsService) {}
   ngOnInit(): void {
@@ -58,8 +59,9 @@ export class ActionsComponent implements OnInit{
         this.currentGame = res;
         this.currentGameChange.emit(res);
         this.canReset = false;
+        this.errorChange.emit('');
       },
-      error: (err) => console.log("Erreur : "+ err)
+      error: (err: HttpErrorResponse) => this.errorChange.emit(err.message)
     });
   }
 
@@ -68,8 +70,9 @@ export class ActionsComponent implements OnInit{
       next: (res: Game) => {
         this.currentGame = res;
         this.currentGameChange.emit(res);
+        this.errorChange.emit('');
       },
-      error: (err) => console.log("Erreur : "+ err)
+      error: (err: HttpErrorResponse) => this.errorChange.emit(err.message)
     });
   }
 
@@ -84,8 +87,9 @@ export class ActionsComponent implements OnInit{
               this.resetSettings();
           });
         }
+        this.errorChange.emit('');
       },
-      error: (err) => console.log("Erreur : "+ err)
+      error: (err: HttpErrorResponse) => this.errorChange.emit(err.message)
     });
   }
 }

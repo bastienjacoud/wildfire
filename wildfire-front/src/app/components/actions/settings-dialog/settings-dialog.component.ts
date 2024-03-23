@@ -42,6 +42,7 @@ export class SettingsDialogComponent {
   }
 
   onSave(): void {
+    //TODO
     console.log(this.game);
     console.log(this.form.value.nbCols);
   }

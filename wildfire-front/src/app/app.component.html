@@ -1,20 +1,24 @@
 <main class="main">
   <div class="container">
-    <!--    Application title-->
+    <!-- Application title -->
     <div class="row">
       <h1 class="text-center">Wildfire</h1>
     </div>
-    <!--    Grid-->
+    <!-- Grid -->
     <div class="row">
       <app-grid [cellList]="game.grid.cellList" [nbColumns]="game.nbCols"/>
     </div>
-    <!--    Step-->
+    <!-- Step -->
     <div class="row">
-      <h2 class="text-center">Step {{game.step}}</h2>
+      <h2 class="text-center">Step : {{game.step}}</h2>
     </div>
-    <!--    Actions-->
+    <!-- Erreur -->
     <div class="row">
-      <app-actions [(currentGame)]="game"/>
+      <h2 *ngIf="error" class="text-center">Erreur : {{error}}</h2>
+    </div>
+    <!-- Actions -->
+    <div class="row">
+      <app-actions [(currentGame)]="game" (errorChange)="onError($event)"/>
     </div>
   </div>
 </main>

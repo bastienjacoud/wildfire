@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {GridComponent} from "./components/grid/grid.component";
 import {ActionsComponent} from "./components/actions/actions.component";
 import {SettingsService} from "./services/settings.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HttpErrorResponse} from "@angular/common/http";
 import {Game} from "./models/game";
-
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,8 @@ import {Game} from "./models/game";
   imports: [
     GridComponent,
     ActionsComponent,
-    HttpClientModule
+    HttpClientModule,
+    NgIf
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -34,10 +35,17 @@ export class AppComponent implements OnInit {
     }
   }
 
+  onError(tutu: string){
+    this.error = tutu;
+  }
+
   private loadSettings(){
     return this.settingsService.getSettings().subscribe({
-      next: (res: Game) => this.game.fromJSON(res),
-      error: (err) => this.error=err
+      next: (res: Game) => {
+        this.game.fromJSON(res);
+        this.error = '';
+      },
+      error: (err: HttpErrorResponse) => this.error = err.message
     });
   }
 }
