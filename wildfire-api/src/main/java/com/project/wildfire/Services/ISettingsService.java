@@ -19,5 +19,5 @@ public interface ISettingsService {
      * @return Current game occurrence to save
      * @throws Exception
      */
-    GameDTO saveSettings(GameDTO settings);
+    GameDTO saveSettings(GameDTO settings) throws Exception;
 }

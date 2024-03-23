@@ -27,7 +27,7 @@ public class GameController {
     /**
      * Object mapper
      */
-    private ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
 
     /**
      * Endpoint used to run one iteration of the simulation.

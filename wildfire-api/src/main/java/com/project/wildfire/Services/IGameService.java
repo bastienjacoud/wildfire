@@ -11,7 +11,7 @@ public interface IGameService {
      * Return next game occurrence, after running one step of the simulation
      * @param currentGame Current game iteration
      * @return Next game iteration
-     * @throws Exception
+     * @throws Exception Exception
      */
     GameDTO goNextStep(GameDTO currentGame) throws Exception;
 
@@ -19,7 +19,7 @@ public interface IGameService {
      * Check if the simulation is finished or not.
      * @param currentGame Current game iteration
      * @return Boolean that specify if the simulation is ended or not.
-     * @throws Exception
+     * @throws Exception Exception
      */
     boolean checkEndGame(GameDTO currentGame) throws Exception;
 }

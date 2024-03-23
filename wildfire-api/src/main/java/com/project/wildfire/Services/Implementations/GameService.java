@@ -24,10 +24,14 @@ public class GameService implements IGameService {
      * Return next game occurrence, after running one step of the simulation
      * @param currentGame Current game iteration
      * @return Next game iteration
-     * @throws Exception
+     * @throws NullPointerException Exception
      */
     @Override
-    public GameDTO goNextStep(GameDTO currentGame) throws Exception {
+    public GameDTO goNextStep(GameDTO currentGame) throws NullPointerException {
+        /* Vérifie la validité de l'objet game courant */
+        this.currentGameAvailable(currentGame);
+
+        /* Joue une étape de la simulation */
         currentGame.setGrid(new Grid(runStep(currentGame.getGrid().getCellList(), currentGame.getProbability())));
         currentGame.setStep(currentGame.getStep() + 1);
         return currentGame;
@@ -37,10 +41,13 @@ public class GameService implements IGameService {
      * Check if the simulation is finished or not.
      * @param currentGame Current game iteration
      * @return Boolean that specify if the simulation is ended or not.
-     * @throws Exception
+     * @throws NullPointerException Exception
      */
     @Override
-    public boolean checkEndGame(GameDTO currentGame) throws Exception {
+    public boolean checkEndGame(GameDTO currentGame) throws NullPointerException {
+        /* Vérifie la validité de l'objet game courant */
+        this.currentGameAvailable(currentGame);
+
         /* Vérifie qu'il y ait toujours des cellules en feu */
         return currentGame.getGrid().getCellList().stream()
                 .noneMatch(cell -> cell instanceof Fire);
@@ -75,5 +82,26 @@ public class GameService implements IGameService {
                     res.replaceAll(cell1-> cell1.getPos() == cell.getPos() ? new Cinder(cell.getPos()) : cell1);
                 });
         return res;
+    }
+
+    /**
+     * Check if current game object is available
+     * @param currentGame Current game.
+     * @throws NullPointerException Exception
+     */
+    private void currentGameAvailable(GameDTO currentGame) throws NullPointerException {
+        if(currentGame == null){
+            throw new NullPointerException("La simulation n'est pas définie.");
+        }
+        else {
+            if(currentGame.getGrid() == null){
+                throw new NullPointerException("La grille n'est pas définie.");
+            }
+            else {
+                if(currentGame.getGrid().getCellList() == null){
+                    throw new NullPointerException("La liste de cellules n'est pas définie.");
+                }
+            }
+        }
     }
 }

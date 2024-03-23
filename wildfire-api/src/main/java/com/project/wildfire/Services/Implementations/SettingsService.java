@@ -24,10 +24,16 @@ public class SettingsService implements ISettingsService {
     /**
      * Method used to load settings (initial simulation state)
      * @return Initial game occurrence
-     * @throws Exception
+     * @throws NullPointerException Exception
      */
     @Override
-    public GameDTO loadGame() throws Exception {
+    public GameDTO loadGame() throws NullPointerException {
+        /* Vérifie le chargement des paramètres */
+        if(settings == null || settings.getInitialState() == null){
+            throw new NullPointerException("Erreur lors du chargement des paramètres à partir du fichier de configuration");
+        }
+
+        /* Initialise et retourne la game à partir des paramètres */
         return new GameDTO(settings.getNbCols(), settings.getProbability(), new Grid(CellConverter.ConvertStatusListToCells(settings.getInitialState(),settings.getNbCols())), 0);
     }
 
@@ -37,7 +43,7 @@ public class SettingsService implements ISettingsService {
      * @throws Exception
      */
     @Override
-    public GameDTO saveSettings(GameDTO settings) {
+    public GameDTO saveSettings(GameDTO settings) throws Exception {
         //TODO
         return null;
     }

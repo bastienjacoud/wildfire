@@ -36,5 +36,4 @@ public class SettingsController {
             return new ResponseEntity<>(e, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }
