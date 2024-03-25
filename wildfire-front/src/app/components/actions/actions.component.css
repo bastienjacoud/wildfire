@@ -1,11 +1,11 @@
-.example-flex-container {
-  display: flex;
+/* Center actions container */
+.actions-container {
   justify-content: center;
-  flex-wrap: wrap;
 }
 
-.example-button-container {
+/* Align and center buttons within container */
+.button-container {
   display: flex;
   justify-content: center;
-  width: 120px;
+  width: 8rem;
 }
