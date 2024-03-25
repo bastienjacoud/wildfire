@@ -1,16 +1,13 @@
-<mat-grid-list cols="{{nbColumns}}" rowHeight="8rem" gutterSize="1rem">
-  <mat-grid-tile class="m-0" *ngFor="let cell of cellList">
-    <mat-card *ngIf="cell.type==TreeStatus.TREE" class="example-card">
-      <img mat-card-md-image src="./assets/images/tree.png" alt="Tree">
+<mat-grid-list cols="{{nbColumns}}" rowHeight="fit" gutterSize="1rem">
+  <mat-grid-tile *ngFor="let cell of cellList">
+    <mat-card *ngIf="cell.type==TreeStatus.TREE">
+      <img src="./assets/images/tree.png" class="img-responsive" alt="Tree">
     </mat-card>
-    <mat-card *ngIf="cell.type==TreeStatus.FIRE" class="example-card">
-      <img mat-card-md-image src="./assets/images/fire.png" alt="Fire">
+    <mat-card *ngIf="cell.type==TreeStatus.FIRE">
+      <img src="./assets/images/fire.png" class="img-responsive" alt="Fire">
     </mat-card>
-    <mat-card *ngIf="cell.type==TreeStatus.CINDER" class="example-card">
-      <img mat-card-md-image src="./assets/images/cinder.png" alt="Cinder">
-    </mat-card>
-    <mat-card *ngIf="cell.type==TreeStatus.DEFAULT" class="example-card">
-      <img mat-card-md-image src="./assets/images/cinder.png" alt="Default">
+    <mat-card *ngIf="cell.type==TreeStatus.CINDER">
+      <img src="./assets/images/cinder.png" class="img-responsive" alt="Cinder">
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
