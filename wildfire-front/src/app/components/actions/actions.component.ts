@@ -68,7 +68,7 @@ export class ActionsComponent implements OnInit{
    * Open settings modal
    */
   openSettings() {
-    //TODO
+    //TODO Draft only
     this.dialog.open(SettingsDialogComponent, {
       data: {
         probability: 0.5,
