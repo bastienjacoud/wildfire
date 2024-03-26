@@ -2,4 +2,4 @@
 
 Java 21
 
-Run as Spring Boot application
+Spring Boot application 3.2.2
