@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "10be1bad-7cb1-42ff-a079-ca70fefb4925",
+		"name": "Wildfire",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32930789"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/settings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/settings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/game/run/step",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"game\": {\r\n        \"nbCols\": 5,\r\n        \"probability\": 0.5,\r\n        \"grid\": {\r\n            \"cellList\": [\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 0,\r\n                        \"posY\": 0\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 1,\r\n                        \"posY\": 0\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 2,\r\n                        \"posY\": 0\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 3,\r\n                        \"posY\": 0\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 4,\r\n                        \"posY\": 0\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 0,\r\n                        \"posY\": 1\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"FIRE\",\r\n                    \"pos\": {\r\n                        \"posX\": 1,\r\n                        \"posY\": 1\r\n                    },\r\n                    \"type\": \"FIRE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 2,\r\n                        \"posY\": 1\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 3,\r\n                        \"posY\": 1\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 4,\r\n                        \"posY\": 1\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 0,\r\n                        \"posY\": 2\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 1,\r\n                        \"posY\": 2\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"CINDER\",\r\n                    \"pos\": {\r\n                        \"posX\": 2,\r\n                        \"posY\": 2\r\n                    },\r\n                    \"type\": \"CINDER\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 3,\r\n                        \"posY\": 2\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 4,\r\n                        \"posY\": 2\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 0,\r\n                        \"posY\": 3\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 1,\r\n                        \"posY\": 3\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 2,\r\n                        \"posY\": 3\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"CINDER\",\r\n                    \"pos\": {\r\n                        \"posX\": 3,\r\n                        \"posY\": 3\r\n                    },\r\n                    \"type\": \"CINDER\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 4,\r\n                        \"posY\": 3\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 0,\r\n                        \"posY\": 4\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 1,\r\n                        \"posY\": 4\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 2,\r\n                        \"posY\": 4\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"TREE\",\r\n                    \"pos\": {\r\n                        \"posX\": 3,\r\n                        \"posY\": 4\r\n                    },\r\n                    \"type\": \"TREE\"\r\n                },\r\n                {\r\n                    \"type\": \"FIRE\",\r\n                    \"pos\": {\r\n                        \"posX\": 4,\r\n                        \"posY\": 4\r\n                    },\r\n                    \"type\": \"FIRE\"\r\n                }\r\n            ]\r\n        },\r\n        \"step\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/game/run/step",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"game",
+						"run",
+						"step"
+					],
+					"query": [
+						{
+							"key": "grid",
+							"value": "{\n        \"cellList\": [\n            {\n                \"pos\": {\n                    \"posX\": 0,\n                    \"posY\": 0\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 1,\n                    \"posY\": 0\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 2,\n                    \"posY\": 0\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 3,\n                    \"posY\": 0\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 4,\n                    \"posY\": 0\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 0,\n                    \"posY\": 1\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 1,\n                    \"posY\": 1\n                },\n                \"type\": \"FIRE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 2,\n                    \"posY\": 1\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 3,\n                    \"posY\": 1\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 4,\n                    \"posY\": 1\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 0,\n                    \"posY\": 2\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 1,\n                    \"posY\": 2\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 2,\n                    \"posY\": 2\n                },\n                \"type\": \"CINDER\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 3,\n                    \"posY\": 2\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 4,\n                    \"posY\": 2\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 0,\n                    \"posY\": 3\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 1,\n                    \"posY\": 3\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 2,\n                    \"posY\": 3\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 3,\n                    \"posY\": 3\n                },\n                \"type\": \"CINDER\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 4,\n                    \"posY\": 3\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 0,\n                    \"posY\": 4\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 1,\n                    \"posY\": 4\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 2,\n                    \"posY\": 4\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 3,\n                    \"posY\": 4\n                },\n                \"type\": \"TREE\"\n            },\n            {\n                \"pos\": {\n                    \"posX\": 4,\n                    \"posY\": 4\n                },\n                \"type\": \"FIRE\"\n            }\n        ],\n        \"step\": 0\n    }",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/game/end?game=%7B%22nbCols%22:5,%22probability%22:0.5,%22grid%22:%7B%22cellList%22:%5B%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:0%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:1,%22posY%22:0%7D%7D,%7B",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/game/end?game=%7B%22nbCols%22:5,%22probability%22:0.5,%22grid%22:%7B%22cellList%22:%5B%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:0%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:1,%22posY%22:0%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:2,%22posY%22:0%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:3,%22posY%22:0%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:4,%22posY%22:0%7D%7D,%7B%22type%22:%22FIRE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:1%7D%7D,%7B%22type%22:%22CINDER%22,%22pos%22:%7B%22posX%22:1,%22posY%22:1%7D%7D,%7B%22type%22:%22FIRE%22,%22pos%22:%7B%22posX%22:2,%22posY%22:1%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:3,%22posY%22:1%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:4,%22posY%22:1%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:2%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:1,%22posY%22:2%7D%7D,%7B%22type%22:%22CINDER%22,%22pos%22:%7B%22posX%22:2,%22posY%22:2%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:3,%22posY%22:2%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:4,%22posY%22:2%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:3%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:1,%22posY%22:3%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:2,%22posY%22:3%7D%7D,%7B%22type%22:%22CINDER%22,%22pos%22:%7B%22posX%22:3,%22posY%22:3%7D%7D,%7B%22type%22:%22FIRE%22,%22pos%22:%7B%22posX%22:4,%22posY%22:3%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:4%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:1,%22posY%22:4%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:2,%22posY%22:4%7D%7D,%7B%22type%22:%22FIRE%22,%22pos%22:%7B%22posX%22:3,%22posY%22:4%7D%7D,%7B%22type%22:%22CINDER%22,%22pos%22:%7B%22posX%22:4,%22posY%22:4%7D%7D%5D%7D,%22step%22:1%7D",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"game",
+						"end"
+					],
+					"query": [
+						{
+							"key": "game",
+							"value": "%7B%22nbCols%22:5,%22probability%22:0.5,%22grid%22:%7B%22cellList%22:%5B%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:0%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:1,%22posY%22:0%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:2,%22posY%22:0%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:3,%22posY%22:0%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:4,%22posY%22:0%7D%7D,%7B%22type%22:%22FIRE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:1%7D%7D,%7B%22type%22:%22CINDER%22,%22pos%22:%7B%22posX%22:1,%22posY%22:1%7D%7D,%7B%22type%22:%22FIRE%22,%22pos%22:%7B%22posX%22:2,%22posY%22:1%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:3,%22posY%22:1%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:4,%22posY%22:1%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:2%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:1,%22posY%22:2%7D%7D,%7B%22type%22:%22CINDER%22,%22pos%22:%7B%22posX%22:2,%22posY%22:2%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:3,%22posY%22:2%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:4,%22posY%22:2%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:3%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:1,%22posY%22:3%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:2,%22posY%22:3%7D%7D,%7B%22type%22:%22CINDER%22,%22pos%22:%7B%22posX%22:3,%22posY%22:3%7D%7D,%7B%22type%22:%22FIRE%22,%22pos%22:%7B%22posX%22:4,%22posY%22:3%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:0,%22posY%22:4%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:1,%22posY%22:4%7D%7D,%7B%22type%22:%22TREE%22,%22pos%22:%7B%22posX%22:2,%22posY%22:4%7D%7D,%7B%22type%22:%22FIRE%22,%22pos%22:%7B%22posX%22:3,%22posY%22:4%7D%7D,%7B%22type%22:%22CINDER%22,%22pos%22:%7B%22posX%22:4,%22posY%22:4%7D%7D%5D%7D,%22step%22:1%7D"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,16 @@
+/* Fixing height of the grid */
+mat-grid-list {
+  height: 44rem;
+}
+
+/* Setting size of each card, fitting to tile */
+mat-card {
+  height: 100%;
+  width: 100%;
+}
+
+/* Setting size of image, fitting to card */
+mat-card img {
+  max-height: 100%;
+  align-self: center;
+}

@@ -1,0 +1,24 @@
+<!-- Actions -->
+<div class="row actions-container col-md-6 offset-md-3">
+<!--  Bouton Settings (TODO) -->
+  <div class="button-container">
+    <button mat-fab color="basic" (click)="openSettings()" disabled>
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>
+<!--  Bouton lancement (TODO) -->
+  <div class="button-container">
+    <button mat-fab color="basic" (click)="launch()" disabled>
+      <mat-icon>play_circle</mat-icon>
+    </button>
+  </div>
+<!--  Bouton pas à pas -->
+  <div class="button-container">
+    <button *ngIf="!canReset" mat-fab color="basic" (click)="nextStep()">
+      <mat-icon>skip_next</mat-icon>
+    </button>
+    <button *ngIf="canReset" mat-fab color="basic" (click)="resetSettings()">
+      <mat-icon>replay</mat-icon>
+    </button>
+  </div>
+</div>

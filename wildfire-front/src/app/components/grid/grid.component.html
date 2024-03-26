@@ -1,0 +1,18 @@
+<!-- Grid -->
+<mat-grid-list cols="{{nbColumns}}" rowHeight="fit" gutterSize="1rem">
+  <!-- Cell -->
+  <mat-grid-tile *ngFor="let cell of cellList">
+    <!-- Tree -->
+    <mat-card *ngIf="cell.type==TreeStatus.TREE">
+      <img src="./assets/images/tree.png" class="img-responsive" alt="Tree">
+    </mat-card>
+    <!-- Fire -->
+    <mat-card *ngIf="cell.type==TreeStatus.FIRE">
+      <img src="./assets/images/fire.png" class="img-responsive" alt="Fire">
+    </mat-card>
+    <!-- Cinder -->
+    <mat-card *ngIf="cell.type==TreeStatus.CINDER">
+      <img src="./assets/images/cinder.png" class="img-responsive" alt="Cinder">
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

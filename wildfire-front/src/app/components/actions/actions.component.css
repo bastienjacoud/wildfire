@@ -1,0 +1,12 @@
+/* Center actions container */
+.actions-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Align and center buttons within container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 8rem;
+}
