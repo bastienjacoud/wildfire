@@ -98,7 +98,7 @@ public class GameService implements IGameService {
                 throw new NullPointerException("La grille n'est pas définie.");
             }
             else {
-                if(currentGame.getGrid().getCellList() == null){
+                if(currentGame.getGrid().getCellList() == null || currentGame.getGrid().getCellList().isEmpty()){
                     throw new NullPointerException("La liste de cellules n'est pas définie.");
                 }
             }

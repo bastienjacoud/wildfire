@@ -107,7 +107,7 @@ export class ActionsComponent implements OnInit{
         this.canReset = false;
         this.errorChange.emit('');
       },
-      error: (err: HttpErrorResponse) => this.errorChange.emit(err.message)
+      error: (err: HttpErrorResponse) => this.errorChange.emit(err.error.message === undefined ? err.name + " " + err.message : err.error.message)
     });
   }
 
@@ -122,7 +122,7 @@ export class ActionsComponent implements OnInit{
         this.currentGameChange.emit(res);
         this.errorChange.emit('');
       },
-      error: (err: HttpErrorResponse) => this.errorChange.emit(err.message)
+      error: (err: HttpErrorResponse) => this.errorChange.emit(err.error.message === undefined ? err.name + " " + err.message : err.error.message)
     });
   }
 
@@ -143,7 +143,7 @@ export class ActionsComponent implements OnInit{
         }
         this.errorChange.emit('');
       },
-      error: (err: HttpErrorResponse) => this.errorChange.emit(err.message)
+      error: (err: HttpErrorResponse) => this.errorChange.emit(err.error.message === undefined ? err.name + " " + err.message : err.error.message)
     });
   }
 }

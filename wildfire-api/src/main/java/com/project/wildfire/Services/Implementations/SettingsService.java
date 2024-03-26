@@ -29,8 +29,10 @@ public class SettingsService implements ISettingsService {
     @Override
     public GameDTO loadGame() throws NullPointerException {
         /* Vérifie le chargement des paramètres */
-        if(settings == null || settings.getInitialState() == null){
-            throw new NullPointerException("Erreur lors du chargement des paramètres à partir du fichier de configuration");
+        if(settings == null){
+            throw new NullPointerException("Erreur lors du chargement du fichier de configuration.");
+        } else if (settings.getInitialState() == null || settings.getInitialState().isEmpty()) {
+            throw new NullPointerException("Erreur lors du chargement de la configuration initiale de la grille.");
         }
 
         /* Initialise et retourne la game à partir des paramètres */

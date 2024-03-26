@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
         this.game.fromJSON(res);
         this.error = '';
       },
-      error: (err: HttpErrorResponse) => this.error = err.message
+      error: (err: HttpErrorResponse) => err.error.message === undefined ? this.onError(err.name + " " + err.message) : this.onError(err.error.message)
     });
   }
 }

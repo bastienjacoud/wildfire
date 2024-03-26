@@ -1,6 +1,6 @@
 /* Fixing height of the grid */
 mat-grid-list {
-  height: 45rem;
+  height: 44rem;
 }
 
 /* Setting size of each card, fitting to tile */
