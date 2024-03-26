@@ -1,5 +1,6 @@
 /* Center actions container */
 .actions-container {
+  display: flex;
   justify-content: center;
 }
 
