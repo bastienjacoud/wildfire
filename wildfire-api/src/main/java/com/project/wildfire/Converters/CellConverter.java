@@ -29,7 +29,7 @@ public class CellConverter {
         AtomicInteger y= new AtomicInteger(0);
         statusList.forEach(cellStatus -> {
             res.addLast(ConvertStatusToCell(cellStatus, new Position(x.getAndIncrement(),y.get())));
-            if(x.get() ==columns){
+            if(x.get() == columns){
                 x.set(0);
                 y.incrementAndGet();
             }
