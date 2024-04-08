@@ -16,13 +16,14 @@ import lombok.*;
  */
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
-@JsonTypeInfo( use = JsonTypeInfo.Id.NAME, property = "type")
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        property = "type")
 @JsonSubTypes({
-        @Type(value = Tree.class, name = "TREE"),
-        @Type(value = Cinder.class, name = "CINDER"),
-        @Type(value = Fire.class, name = "FIRE")
+        @Type(value = Tree.class, name = CellStatus.Constant.TREE_VALUE),
+        @Type(value = Cinder.class, name = CellStatus.Constant.CINDER_VALUE),
+        @Type(value = Fire.class, name = CellStatus.Constant.FIRE_VALUE)
 })
 public abstract class AbstractCell {
 
@@ -30,10 +31,4 @@ public abstract class AbstractCell {
      * Position
      */
     private Position pos;
-
-    /**
-     * Status
-     */
-    @NonNull
-    protected CellStatus type;
 }
